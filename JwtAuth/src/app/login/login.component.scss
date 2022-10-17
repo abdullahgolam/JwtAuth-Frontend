@@ -1,0 +1,36 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: 600px;
+  border-radius: 20px;
+  border: 1px solid #188f2e;
+}
+
+.header {
+  text-align: center;
+  padding: 8px;
+}
+
+.mat-form-field{
+  text-align: right;
+  width: 90%;
+  padding: 12px;
+}
+
+
+.mat-icon{
+  color: #188f2e;
+}
+
+.mat-flat-button{
+  background-color: #188f2e;
+}
+
+.mat-hint{
+  color: #188f2e;
+}
+
+.login-button {
+  margin: 15px;
+}

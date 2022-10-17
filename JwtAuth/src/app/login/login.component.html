@@ -1,1 +1,45 @@
-<p>login works!</p>
+<br>
+
+
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <img src="assets/images/logo-hr.png" style="height: 115px; width: 115px;">
+      <h2>نظام التقرير السنوي</h2>
+    </div>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>اسم المستخدم</mat-label>
+        <input matInput type="text" class="text-number" formControlName="username" autocomplete="off">
+        <mat-icon matSuffix >
+          <fa-icon [icon]="faUser"></fa-icon>
+        </mat-icon>
+        <mat-hint>
+          <sup>*</sup>
+          ادخل الرقم الوظفي
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>كلمة المرور</mat-label>
+        <input matInput type="password" class="text-number" formControlName="password" autocomplete="off">
+        <mat-icon matSuffix>
+          <fa-icon [icon]="faLock"></fa-icon>
+        </mat-icon>
+        <mat-hint>
+          <sup>*</sup>
+          ادخل الرقم السري للدخول الموحد
+        </mat-hint>
+      </mat-form-field>
+
+      <!-- <span class="link">Forget Password?</span> -->
+      <br>
+      <br>
+      <br>
+
+      <button mat-flat-button color="primary" class="login-button" >تسجيل دخول</button>
+      <!-- routerLink="../utar" -->
+    </form>
+  </mat-card-content>
+</mat-card>
