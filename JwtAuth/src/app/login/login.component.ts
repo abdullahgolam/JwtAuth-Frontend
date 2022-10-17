@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {faUser, faLock} from '@fortawesome/free-solid-svg-icons';
+import {AuthService} from "../services/auth.service";
 
 
 @Component({
@@ -19,9 +19,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private http: HttpClient,
-    private router: Router
-  ) { }
+    private router: Router,
+    private authService: AuthService,
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group(
@@ -33,18 +34,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-
-    this.http.post('http://localhost:8000/api/login', this.loginForm.getRawValue(), {
-      withCredentials: true
-    }).subscribe({
+    this.authService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigate(['../dashboard'])
+        this.router.navigate(['dashboard']).then()
       },
-      error: () => {
-        alert('اسم المستخدم او كلمة المرور خاطئة !!!');
+      error: () =>{
+        alert('اسم المستخدم او كلمة المرور خاطئة !!!')
       }
-    });
-
+    })
   }
 
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -6,7 +6,13 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AuthService {
 
-  constructor(private _http: HttpClient) { }
+  loginUrl: string = 'http://localhost:8000/api/login/'
 
+  constructor(private http: HttpClient) {
+  }
+
+  login(val: any) {
+    return this.http.post(this.loginUrl, val)
+  }
 
 }
